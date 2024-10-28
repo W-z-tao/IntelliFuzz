@@ -113,7 +113,7 @@ for _ in tqdm(range(10000)):
             ave_reward = ave_reward_1*alpha+(1-alpha)*send.true_reward
             if reward_count_1 % reward_update_count == 0:
                 used_reward = ave_reward
-        policy1.getReward(c1, min(send.true_reward/used_reward_1, 1, min_num)/2)
+        policy1.getReward(c1, min(send.true_reward/used_reward_1, 2, min_num)/2)
 
     elif c1 == 1:
         c2 = policy2.choice()
@@ -181,8 +181,8 @@ for _ in tqdm(range(10000)):
                 used_reward_1 = ave_reward_1
             if reward_count_2 % reward_update_count == 0:
                 used_reward_2 = ave_reward_2
-        policy1.getReward(c1, min(capture_seed.true_reward / used_reward_1, 1, min_num) / 2)
-        policy2.getReward(c2, min(capture_seed.true_reward / used_reward_2, 1, min_num) / 2)
+        policy1.getReward(c1, min(capture_seed.true_reward / used_reward_1, 2, min_num) / 2)
+        policy2.getReward(c2, min(capture_seed.true_reward / used_reward_2, 2, min_num) / 2)
         capture_seed.true_reward = 0
 
 
